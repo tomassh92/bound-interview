@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import Panel from "./components/panel/Panel"
+import { useCallback, useContext } from "react"
+import CreateWebsitePanel from "./components/createWebsitePanel/CreateWebsitePanel"
+import Button from "./components/button/Button"
+import { PanelContext } from "./context/PanelContext"
 
 function App() {
+  const { isOpen, setIsOpen } = useContext(PanelContext)
+
+  const togglePanel = useCallback(() => {
+    setIsOpen((isOpen) => !isOpen)
+  }, [setIsOpen])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Button type="primary" onClick={togglePanel}>
+        + New Website
+      </Button>
+      <Panel isOpen={isOpen} position="right">
+        <CreateWebsitePanel />
+      </Panel>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

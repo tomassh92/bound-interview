@@ -1,0 +1,42 @@
+.stepper-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  .step-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    &.selected {
+      .step-number {
+        background: #2f6fed;
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+
+    .step-number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #e1e6ef;
+    }
+
+    .divider {
+      width: 20px;
+      height: 20px;
+      color: #1d2433cc;
+    }
+    .step-description {
+      font-size: 20px;
+    }
+  }
+}
