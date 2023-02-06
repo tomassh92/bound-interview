@@ -1,4 +1,3 @@
-import "./App.css"
 import Panel from "./components/panel/Panel"
 import { useCallback, useContext } from "react"
 import CreateWebsitePanel from "./components/createWebsitePanel/CreateWebsitePanel"

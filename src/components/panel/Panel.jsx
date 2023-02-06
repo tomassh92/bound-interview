@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom"
+import "./panel.scss"
 
 const Panel = ({
   isOpen,

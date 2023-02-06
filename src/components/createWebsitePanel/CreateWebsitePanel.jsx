@@ -7,6 +7,9 @@ import { PanelContext } from "../../context/PanelContext"
 import Button from "../button/Button"
 import { MdClose } from "react-icons/md"
 import { formatFormState } from "../../utils/formHelper"
+import FirstStep from "../steps/FirstStep"
+import SecondStep from "../steps/SecondStep"
+import ThirdStep from "../steps/ThirdStep"
 
 const CreateWebsitePanel = () => {
   const { resetState, step, setStep, steps, data } = useContext(FormContext)
@@ -49,11 +52,11 @@ const CreateWebsitePanel = () => {
         </Button>
       </div>
       <div className="content">
-        <MultiStepForm
-          step={step}
-          steps={steps}
-          handleStepClick={handleStepClick}
-        />
+        <MultiStepForm step={step} steps={steps} onStepClick={handleStepClick}>
+          <FirstStep />
+          <SecondStep />
+          <ThirdStep />
+        </MultiStepForm>
       </div>
       <div className="footer">
         <Button type="secondary" onClick={handleClose}>
