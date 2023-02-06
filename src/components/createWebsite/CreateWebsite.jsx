@@ -1,25 +1,23 @@
 import { useCallback, useContext, useMemo } from "react"
 import { MdClose } from "react-icons/md"
-import { FormContext } from "../../context/FormContext"
-import { PanelContext } from "../../context/PanelContext"
+import { FormContext } from "context/FormContext"
 import {
-  formatFormState,
-  getStepNames,
+  getFormattedFormState,
+  getStepLabels,
   isStepValid,
-} from "../../utils/formHelper"
-import Button from "../button/Button"
-import MultiStepForm from "../multiStepForm/MultiStepForm"
-import FirstStep from "../steps/FirstStep"
-import SecondStep from "../steps/SecondStep"
-import ThirdStep from "../steps/ThirdStep"
-import "./createWebsitePanel.scss"
+} from "utils/formHelper"
+import Button from "components/button/Button"
+import MultiStepForm from "components/multiStepForm/MultiStepForm"
+import FirstStep from "components/steps/FirstStep"
+import SecondStep from "components/steps/SecondStep"
+import ThirdStep from "components/steps/ThirdStep"
+import "./createWebsite.scss"
 
-const CreateWebsitePanel = () => {
+const CreateWebsite = ({ togglePanel }) => {
   const { currentStep, setCurrentStep, formState, resetState } =
     useContext(FormContext)
-  const { setIsOpen } = useContext(PanelContext)
 
-  const steps = useMemo(() => getStepNames(formState), [])
+  const steps = useMemo(() => getStepLabels(formState), [])
   const lastStepIndex = steps.length - 1
   const isLastStep = lastStepIndex === currentStep
   const isCurentStepValid = useMemo(
@@ -38,21 +36,17 @@ const CreateWebsitePanel = () => {
     setCurrentStep((step) => (step < lastStepIndex ? step + 1 : step))
   }, [setCurrentStep, lastStepIndex])
 
-  const onClose = useCallback(() => {
-    setIsOpen((isOpen) => !isOpen)
-  }, [setIsOpen])
-
   const onSubmit = useCallback(() => {
-    console.log(formatFormState(formState))
+    console.log(getFormattedFormState(formState))
     resetState()
-    onClose()
-  }, [onClose, resetState, formState])
+    togglePanel()
+  }, [togglePanel, resetState, formState])
 
   return (
-    <div className="create-website-panel">
+    <div className="create-website">
       <div className="header">
         <span>New Website</span>
-        <Button type="secondary" className="close-btn" onClick={onClose}>
+        <Button type="secondary" className="close-btn" onClick={togglePanel}>
           <MdClose />
         </Button>
       </div>
@@ -68,7 +62,7 @@ const CreateWebsitePanel = () => {
         </MultiStepForm>
       </div>
       <div className="footer">
-        <Button type="secondary" onClick={onClose}>
+        <Button type="secondary" onClick={togglePanel}>
           Close
         </Button>
         {isLastStep ? (
@@ -89,4 +83,4 @@ const CreateWebsitePanel = () => {
   )
 }
 
-export default CreateWebsitePanel
+export default CreateWebsite

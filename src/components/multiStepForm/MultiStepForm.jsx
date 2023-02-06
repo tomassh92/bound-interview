@@ -1,5 +1,5 @@
 import React from "react"
-import Stepper from "../stepper/Stepper"
+import Stepper from "components/stepper/Stepper"
 import "./multiStepForm.scss"
 
 const MultiStepForm = ({ currentStep, steps, onStepClick, children }) => {

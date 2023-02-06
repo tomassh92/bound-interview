@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { FormContext } from "../../context/FormContext"
-import FormStep from "../formStep/FormStep"
+import { FormContext } from "context/FormContext"
+import FormStep from "components/formStep/FormStep"
 
 const FirstStep = () => {
   const { formState, setFormState } = useContext(FormContext)

@@ -3,17 +3,11 @@ import ReactDOM from "react-dom/client"
 import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
-import { FormContextProvider } from "./context/FormContext"
-import { PanelContextProvider } from "./context/PanelContext"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
   <React.StrictMode>
-    <FormContextProvider>
-      <PanelContextProvider>
-        <App />
-      </PanelContextProvider>
-    </FormContextProvider>
+    <App />
   </React.StrictMode>
 )
 

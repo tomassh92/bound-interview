@@ -1,11 +1,11 @@
-import { useCallback, useContext } from "react"
-import Button from "./components/button/Button"
-import CreateWebsitePanel from "./components/createWebsitePanel/CreateWebsitePanel"
-import Panel from "./components/panel/Panel"
-import { PanelContext } from "./context/PanelContext"
+import { useCallback, useState } from "react"
+import Button from "components/button/Button"
+import CreateWebsite from "components/createWebsite/CreateWebsite"
+import Panel from "components/panel/Panel"
+import { FormContextProvider } from "context/FormContext"
 
 function App() {
-  const { isOpen, setIsOpen } = useContext(PanelContext)
+  const [isOpen, setIsOpen] = useState(false)
 
   const togglePanel = useCallback(() => {
     setIsOpen((isOpen) => !isOpen)
@@ -13,11 +13,17 @@ function App() {
 
   return (
     <div className="App">
-      <Button type="primary" onClick={togglePanel}>
+      <Button
+        style={{ position: "absolute", top: 16, right: 24 }}
+        type="primary"
+        onClick={togglePanel}
+      >
         + New Website
       </Button>
       <Panel isOpen={isOpen} position="right">
-        <CreateWebsitePanel />
+        <FormContextProvider>
+          <CreateWebsite togglePanel={togglePanel} />
+        </FormContextProvider>
       </Panel>
     </div>
   )

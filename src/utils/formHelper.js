@@ -1,4 +1,4 @@
-export const formatFormState = (formState) => {
+export const getFormattedFormState = (formState) => {
   let formttedState = {}
   for (let key in formState) {
     const value = formState[key].value
@@ -17,7 +17,7 @@ export const formatFormState = (formState) => {
   return formttedState
 }
 
-export const getStepNames = (formState) => {
+export const getStepLabels = (formState) => {
   return Object.values(formState).map((v) => v.label)
 }
 

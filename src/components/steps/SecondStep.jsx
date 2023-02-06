@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import { FormContext } from "../../context/FormContext"
-import CheckboxGroup from "../checkboxGroup/CheckboxGroup"
-import FormStep from "../formStep/FormStep"
+import { FormContext } from "context/FormContext"
+import CheckboxGroup from "components/checkboxGroup/CheckboxGroup"
+import FormStep from "components/formStep/FormStep"
 
 const SecondStep = () => {
   const { formState, setFormState } = useContext(FormContext)
