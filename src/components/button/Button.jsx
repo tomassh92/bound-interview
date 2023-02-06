@@ -1,12 +1,14 @@
-import cn from "classnames"
 import React from "react"
 import "./button.scss"
 
 const Button = React.memo(
-  ({ type, onClick, className, children, ...props }) => {
-    const btnClasses = cn("btn", type, className)
+  ({ type, onClick, className = "", children, ...props }) => {
     return (
-      <button className={btnClasses} onClick={onClick} {...props}>
+      <button
+        className={`btn ${type} ${className}`}
+        onClick={onClick}
+        {...props}
+      >
         {children}
       </button>
     )
