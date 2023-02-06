@@ -3,11 +3,11 @@ import { FormContext } from "../../context/FormContext"
 import FormStep from "../formStep/FormStep"
 
 const FirstStep = () => {
-  const { data, setData } = useContext(FormContext)
+  const { formState, setFormState } = useContext(FormContext)
 
   const handleChange = (e) => {
     const value = e.target.value
-    setData((prevData) => {
+    setFormState((prevData) => {
       return {
         ...prevData,
         name: { ...prevData.name, value: value, valid: !!value },
@@ -19,7 +19,7 @@ const FirstStep = () => {
       <input
         type="text"
         placeholder="Content"
-        value={data.name.value}
+        value={formState.name.value}
         onChange={handleChange}
         required
       />

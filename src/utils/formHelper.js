@@ -16,3 +16,11 @@ export const formatFormState = (formState) => {
   }
   return formttedState
 }
+
+export const getStepNames = (formState) => {
+  return Object.values(formState).map((v) => v.label)
+}
+
+export const isStepValid = (formState, currentStep) => {
+  return formState[Object.keys(formState)[currentStep]].valid
+}

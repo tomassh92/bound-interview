@@ -16,4 +16,5 @@ const MultiStepForm = ({ currentStep, steps, onStepClick, children }) => {
   )
 }
 
-export default MultiStepForm
+const memoizedComponent = React.memo(MultiStepForm)
+export default memoizedComponent

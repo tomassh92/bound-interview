@@ -4,10 +4,10 @@ import CheckboxGroup from "../checkboxGroup/CheckboxGroup"
 import FormStep from "../formStep/FormStep"
 
 const SecondStep = () => {
-  const { data, setData } = useContext(FormContext)
+  const { formState, setFormState } = useContext(FormContext)
 
   const handleOnChange = (checkedState) => {
-    setData((prevData) => {
+    setFormState((prevData) => {
       return {
         ...prevData,
         analytics_integrations: {
@@ -22,7 +22,7 @@ const SecondStep = () => {
   return (
     <FormStep label="Choose One or More Analytics Integrations">
       <CheckboxGroup
-        options={data.analytics_integrations.value}
+        options={formState.analytics_integrations.value}
         onChange={handleOnChange}
       />
     </FormStep>

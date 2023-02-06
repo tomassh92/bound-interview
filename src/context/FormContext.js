@@ -32,22 +32,22 @@ const FORM_STATE = {
 
 export const FormContextProvider = ({ children }) => {
   const [currentStep, setCurrentStep] = useState(0)
-  const [data, setData] = useState(FORM_STATE)
+  const [formState, setFormState] = useState(FORM_STATE)
 
   const resetState = () => {
-    setData(FORM_STATE)
+    setFormState(FORM_STATE)
     setCurrentStep(0)
   }
 
   return (
     <FormContext.Provider
       value={{
-        steps: Object.values(data).map((v) => v.label),
+        steps: Object.values(formState).map((v) => v.label),
         currentStep,
         setCurrentStep,
         resetState,
-        data,
-        setData,
+        formState,
+        setFormState,
       }}
     >
       {children}

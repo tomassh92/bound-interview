@@ -7,19 +7,19 @@ const CheckboxGroup = ({ options, onChange }) => {
   }
 
   return (
-    <ul className="options-list">
+    <ul className="checkbox-group">
       {optionsKeys.map((option, index) => {
         return (
           <li key={index}>
             <input
               type="checkbox"
-              id={`custom-checkbox-${index}`}
+              id={index}
               name={option}
               value={option}
               checked={options[option]}
               onChange={handleChange(option)}
             />
-            <label htmlFor={`custom-checkbox-${index}`}>{option}</label>
+            <label htmlFor={index}>{option}</label>
           </li>
         )
       })}

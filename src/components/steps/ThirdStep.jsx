@@ -4,10 +4,10 @@ import CheckboxGroup from "../checkboxGroup/CheckboxGroup"
 import FormStep from "../formStep/FormStep"
 
 const ThirdStep = () => {
-  const { data, setData } = useContext(FormContext)
+  const { formState, setFormState } = useContext(FormContext)
 
   const handleOnChange = (checkedState) => {
-    setData((prevData) => {
+    setFormState((prevData) => {
       return {
         ...prevData,
         data_integrations: {
@@ -22,7 +22,7 @@ const ThirdStep = () => {
   return (
     <FormStep label="Choose One or More Data Integrations">
       <CheckboxGroup
-        options={data.data_integrations.value}
+        options={formState.data_integrations.value}
         onChange={handleOnChange}
       />
     </FormStep>
