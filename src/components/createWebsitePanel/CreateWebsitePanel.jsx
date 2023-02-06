@@ -43,10 +43,10 @@ const CreateWebsitePanel = () => {
   }, [handleClose, resetState, data])
 
   return (
-    <div className="createWebsitePanel">
+    <div className="create-website-panel">
       <div className="header">
         <span>New Website</span>
-        <Button type="secondary" className="closeBtn" onClick={handleClose}>
+        <Button type="secondary" className="close-btn" onClick={handleClose}>
           <MdClose />
         </Button>
       </div>

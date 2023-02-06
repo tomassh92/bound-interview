@@ -16,7 +16,7 @@ const Stepper = ({ steps, currentStepNumber, onStepClick }) => {
           {isCompleted ? <MdDone /> : index + 1}
         </div>
         <div className="step-description">{step}</div>
-        {index !== steps.size - 1 && <MdChevronRight className="divider" />}
+        {index !== steps.length - 1 && <MdChevronRight className="divider" />}
       </div>
     )
   })

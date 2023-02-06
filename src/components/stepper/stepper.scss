@@ -1,16 +1,16 @@
 .stepper-wrapper {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
   gap: 16px;
+  justify-content: center;
 
   .step-wrapper {
+    align-items: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 0px;
     gap: 10px;
+    padding: 0px;
 
     &.selected {
       .step-number {
@@ -21,19 +21,19 @@
     }
 
     .step-number {
-      display: flex;
-      justify-content: center;
       align-items: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
       background: #e1e6ef;
+      border-radius: 50%;
+      display: flex;
+      height: 32px;
+      justify-content: center;
+      width: 32px;
     }
 
     .divider {
-      width: 20px;
-      height: 20px;
       color: #1d2433cc;
+      height: 20px;
+      width: 20px;
     }
     .step-description {
       font-size: 20px;

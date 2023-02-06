@@ -3,7 +3,7 @@ import "./formStep.scss"
 
 const FormStep = ({ label, children }) => {
   return (
-    <div className="formStep">
+    <div className="form-step">
       <div className="label">
         <span>{label}</span>
         <MdHelpOutline />
