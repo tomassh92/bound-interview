@@ -2,7 +2,7 @@ import { createContext, useState } from "react"
 
 export const FormContext = createContext({})
 
-const initialState = {
+const FORM_STATE = {
   name: {
     valid: false,
     label: "Name",
@@ -31,20 +31,20 @@ const initialState = {
 }
 
 export const FormContextProvider = ({ children }) => {
-  const [step, setStep] = useState(0)
-  const [data, setData] = useState(initialState)
+  const [currentStep, setCurrentStep] = useState(0)
+  const [data, setData] = useState(FORM_STATE)
 
   const resetState = () => {
-    setData(initialState)
-    setStep(0)
+    setData(FORM_STATE)
+    setCurrentStep(0)
   }
 
   return (
     <FormContext.Provider
       value={{
         steps: Object.values(data).map((v) => v.label),
-        step,
-        setStep,
+        currentStep,
+        setCurrentStep,
         resetState,
         data,
         setData,

@@ -1,7 +1,7 @@
-import Panel from "./components/panel/Panel"
 import { useCallback, useContext } from "react"
-import CreateWebsitePanel from "./components/createWebsitePanel/CreateWebsitePanel"
 import Button from "./components/button/Button"
+import CreateWebsitePanel from "./components/createWebsitePanel/CreateWebsitePanel"
+import Panel from "./components/panel/Panel"
 import { PanelContext } from "./context/PanelContext"
 
 function App() {

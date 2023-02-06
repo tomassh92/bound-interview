@@ -1,5 +1,5 @@
-import "./formStep.scss"
 import { MdHelpOutline } from "react-icons/md"
+import "./formStep.scss"
 
 const FormStep = ({ label, children }) => {
   return (

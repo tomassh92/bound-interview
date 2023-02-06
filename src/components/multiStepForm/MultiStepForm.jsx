@@ -1,14 +1,13 @@
-import "./multiStepForm.scss"
 import React from "react"
 import Stepper from "../stepper/Stepper"
+import "./multiStepForm.scss"
 
-const MultiStepForm = ({ step, steps, onStepClick, children }) => {
-  const currentChild = React.Children.toArray(children)[step]
-
+const MultiStepForm = ({ currentStep, steps, onStepClick, children }) => {
+  const currentChild = React.Children.toArray(children)[currentStep]
   return (
     <div className="multiStepForm">
       <Stepper
-        currentStepNumber={step}
+        currentStepNumber={currentStep}
         steps={steps}
         onStepClick={onStepClick}
       />

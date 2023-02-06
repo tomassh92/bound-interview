@@ -1,37 +1,36 @@
 import { useCallback, useContext, useMemo } from "react"
-
-import "./createWebsitePanel.scss"
-import MultiStepForm from "../multiStepForm/MultiStepForm"
+import { MdClose } from "react-icons/md"
 import { FormContext } from "../../context/FormContext"
 import { PanelContext } from "../../context/PanelContext"
-import Button from "../button/Button"
-import { MdClose } from "react-icons/md"
 import { formatFormState } from "../../utils/formHelper"
+import Button from "../button/Button"
+import MultiStepForm from "../multiStepForm/MultiStepForm"
 import FirstStep from "../steps/FirstStep"
 import SecondStep from "../steps/SecondStep"
 import ThirdStep from "../steps/ThirdStep"
+import "./createWebsitePanel.scss"
 
 const CreateWebsitePanel = () => {
-  const { resetState, step, setStep, steps, data } = useContext(FormContext)
+  const { resetState, currentStep, setCurrentStep, steps, data } =
+    useContext(FormContext)
   const { setIsOpen } = useContext(PanelContext)
 
   const lastStepIndex = steps.length - 1
-  const isLastStep = lastStepIndex === step
-
+  const isLastStep = lastStepIndex === currentStep
   const isCurentStepValid = useMemo(() => {
-    return data[Object.keys(data)[step]].valid
-  }, [data, step])
-
-  const handleNext = useCallback(() => {
-    setStep((step) => (step < lastStepIndex ? step + 1 : step))
-  }, [setStep, lastStepIndex])
+    return data[Object.keys(data)[currentStep]].valid
+  }, [data, currentStep])
 
   const handleStepClick = useCallback(
     (stepIndex) => () => {
-      setStep(stepIndex)
+      setCurrentStep(stepIndex)
     },
-    [setStep]
+    [setCurrentStep]
   )
+
+  const handleNext = useCallback(() => {
+    setCurrentStep((step) => (step < lastStepIndex ? step + 1 : step))
+  }, [setCurrentStep, lastStepIndex])
 
   const handleClose = useCallback(() => {
     setIsOpen((isOpen) => !isOpen)
@@ -52,7 +51,11 @@ const CreateWebsitePanel = () => {
         </Button>
       </div>
       <div className="content">
-        <MultiStepForm step={step} steps={steps} onStepClick={handleStepClick}>
+        <MultiStepForm
+          currentStep={currentStep}
+          steps={steps}
+          onStepClick={handleStepClick}
+        >
           <FirstStep />
           <SecondStep />
           <ThirdStep />

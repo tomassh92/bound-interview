@@ -1,6 +1,6 @@
-import "./stepper.scss"
 import React from "react"
 import { MdChevronRight, MdDone } from "react-icons/md"
+import "./stepper.scss"
 
 const Stepper = ({ steps, currentStepNumber, onStepClick }) => {
   const stepsJSX = steps.map((step, index) => {
